@@ -41,14 +41,13 @@ This repo builds a **miniature version** of such a pipeline, focusing specifical
 
 ```mermaid
 flowchart TD
-    A[Raw WAV Audio] --> B[Resample & Normalize]
-    B --> C[Mel-Spectrogram Extraction]
-    C --> D[SmallVoiceNet <br> (Lightweight ConvNet)]
-    D --> E[PyTorch Checkpoint]
-    E --> F[ONNX Export]
-    F --> G[ONNX Runtime Inference]
-    G --> H[Latency Benchmarking Report]
+    A[Audio Input] --> B[Preprocessing: Resample + Normalize + Mel-Spectrogram]
+    B --> C[SmallVoiceNet - Lightweight ConvNet Encoder]
+    C --> D[Latent Features]
+    D --> E[Classifier Head]
+    E --> F[ONNX Export + Runtime Optimizations]
 ```
+
 
 This mirrors real-world production workflows used in speech classification, speaker verification, and real-time conversational agents.
 
